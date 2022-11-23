@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe!</title>
+    <style>    
+    h1 {
+        text-align: center;       
+    }
+   
+    .grid {
+        display: grid;
+        gap: 1px;
+        grid-template-columns: repeat(3, 1fr);
+        width: 250px;
+        height: 250px;
+        margin-left: 186px;
+        margin-top: 30px;
+                
+      }
+     .box {
+        background-color: #808080;
+        width: 100px;
+        height: 100px;
+        text-align: center;
+        font-size: 90px;
+
+     } 
+     
+    </style>
+    </head>
+    <body>
+     <main>
+        <h1>Tic-Tac-Toe!</h1>           
+      <div class="grid">
+        <!-- row 1 -->
+        <div id="cell-1" class="box"></div>
+        <div id="cell-2" class="box"></div>
+        <div id="cell-3" class="box"></div>
+        <!-- row 2 -->
+        <div id="cell-4" class="box"></div>
+        <div id="cell-5" class="box"></div>
+        <div id="cell-6" class="box"></div>
+        <!-- row 3 -->
+        <div id="cell-7" class="box"></div>
+        <div id="cell-8" class="box"></div>
+        <div id="cell-9" class="box"></div>  
+      </div>
+      <p class="who-is-winner"></p>
+    </main>
+</body>
+<script>
+var player1 = 'X'
+var player2 = 'O'
+//  winning conditions 
+//  outcomes : [1,2,3],[4,5,6],[7,8,9],[1,4,7],[2,5,8],[3,6,9],[1,5,9],[3,5,7]
+// order does not matter in bettween the elements.
+
+// var firstX = document.querySelector('.grid')
+// firstX.addEventListener('click',function(event) {
+// firstX.textContent = 'X'
+// })
+//  this means you click then you click on the parent grid but this will not work as it overrides the children divs
+
+var callBack = function(event) {
+    console.log(event.target)
+}
+
+
+
+
+// step 2. when it is odd click put X, when it is even click put O . BUT i do not know where the user is going to press. so the only thing that i know is that if user clicks "first time" then it will give X
+// var clickX = document.querySelector
+    // addEventListener('click',function(event)) {
+    //     textcontent = 'X'
+    // }
+    // 1 out of all the classes of divs
+
+var Block0 = document.querySelector('#cell-1')
+var Block1 = document.querySelector('#cell-2')
+var Block2 = document.querySelector('#cell-3')
+var Block3 = document.querySelector('#cell-4')
+var Block4 = document.querySelector('#cell-5')
+var Block5 = document.querySelector('#cell-6')
+var Block6 = document.querySelector('#cell-7')
+var Block7 = document.querySelector('#cell-8')
+var Block8 = document.querySelector('#cell-9')
+
+var winner = document.querySelector('.who-is-winner')
+
+
+
+//  winning condition steps.
+//  var xWinning = document.querySelector('#cell-1')
+//  clicked.addEventListener('click',(event) {
+//     if (Block1.textContent && Block2.textContent && Block3 ==='X') {
+//         winner.textContent = 'X is the winner!'
+//     } else if (Block4.textContent && Block5.textContent && Block6 ==='X') {
+//         winner.textContent = 'X is the winner!'
+//     } else if (Block7.textContent && Block8.textContent && Block9 ==='X') {
+//         winner.textContent = 'X is the winner!'        
+//     } else if (Block1.textContent && Block4.textContent && Block7 ==='X') {
+//         winner.textContent = 'X is the winner!'
+//     } else if (Block2.textContent && Block5.textContent && Block8 ==='X') {
+//         winner.textContent = 'X is the winner!'
+//     } else if (Block3.textContent && Block6.textContent && Block9 ==='X') {
+//         winner.textContent = 'X is the winner!'
+//     } else if (Block1.textContent && Block5.textContent && Block9 ==='X') {
+//         winner.textContent = 'X is the winner!'
+//     } else if (Block3.textContent && Block5.textContent && Block7 ==='X') {
+//         winner.textContent = 'X is the winner!'
+//  }
+// })
+    
+// var oWinning = document.querySelector('#cell-2')
+//  clicked.addEventListener('click',(event) {
+//     if (Block1.textContent && Block2.textContent && Block3 ==='O') {
+//         winner.textContent = 'O is the winner!'
+//     } else if (Block4.textContent && Block5.textContent && Block6 ==='O') {
+//         winner.textContent = 'O is the winner!'
+//     } else if (Block7.textContent && Block8.textContent && Block9 ==='O') {
+//         winner.textContent = 'O is the winner!'        
+//     } else if (Block1.textContent && Block4.textContent && Block7 ==='O') {
+//         winner.textContent = 'O is the winner!'
+//     } else if (Block2.textContent && Block5.textContent && Block8 ==='O') {
+//         winner.textContent = 'O is the winner!'
+//     } else if (Block3.textContent && Block6.textContent && Block9 ==='O') {
+//         winner.textContent = 'O is the winner!'
+//     } else if (Block1.textContent && Block5.textContent && Block9 ==='O') {
+//         winner.textContent = 'O is the winner!'
+//     } else if (Block3.textContent && Block5.textContent && Block7 ==='O') {
+//         winner.textContent = 'O is the winner!'
+//  }
+// })
+
+
+
+function checkRowForWin(box) {
+    console.log(box)
+    let id = box.id
+    if (id === "cell-1" || id === "cell-2" || id === "cell-3") {
+        if (Block1.textContent === '' && Block2.textContent === '' && Block3.textContent === '') {
+         winner.textContent = 'O is the winner!'
+    }
+}
+}
+
+var count = 1
+
+
+// you would also need a drawing condition. var drawing.
+
+//  now what goes in the section of queryselector()? everytime it has been clicked it will have to check. so it needs a for loop
+
+//  grid = [box, box, box,
+//          box, box, box,
+//          box, box, box]
+// check if the grid has text content or not if there is one then you move on to 
+var gridNodeList = document.querySelectorAll('.box')
+for (i=0; i < gridNodeList.length; i++ ) {
+    gridNodeList[i].addEventListener('click', function(event) {
+        checkRowForWin(event.target)
+        if (count %2 === 0) {
+            event.target.textContent = 'O'
+        }   else {
+            event.target.textContent = 'X'
+        }
+        count++             
+    })
+}
+ 
+</script>
+</html>
+
+
+<!-- what does it mean live or static? -->
