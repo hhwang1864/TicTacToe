@@ -52,31 +52,7 @@
     </main>
 </body>
 <script>
-var player1 = 'X'
-var player2 = 'O'
-//  winning conditions 
-//  outcomes : [1,2,3],[4,5,6],[7,8,9],[1,4,7],[2,5,8],[3,6,9],[1,5,9],[3,5,7]
-// order does not matter in bettween the elements.
 
-// var firstX = document.querySelector('.grid')
-// firstX.addEventListener('click',function(event) {
-// firstX.textContent = 'X'
-// })
-//  this means you click then you click on the parent grid but this will not work as it overrides the children divs
-
-var callBack = function(event) {
-    console.log(event.target)
-}
-
-
-
-
-// step 2. when it is odd click put X, when it is even click put O . BUT i do not know where the user is going to press. so the only thing that i know is that if user clicks "first time" then it will give X
-// var clickX = document.querySelector
-    // addEventListener('click',function(event)) {
-    //     textcontent = 'X'
-    // }
-    // 1 out of all the classes of divs
 
 var Block1 = document.querySelector('#cell-1')
 var Block2 = document.querySelector('#cell-2')
@@ -91,54 +67,8 @@ var Block9 = document.querySelector('#cell-9')
 var winner = document.querySelector('.who-is-winner')
 
 
-
-//  winning condition steps.
-//  var xWinning = document.querySelector('#cell-1')
-//  clicked.addEventListener('click',(event) {
-    // if (Block1.textContent && Block2.textContent && Block3 ==='X') {
-    //     winner.textContent = 'X is the winner!'
-//     } else if (Block4.textContent && Block5.textContent && Block6 ==='X') {
-//         winner.textContent = 'X is the winner!'
-//     } else if (Block7.textContent && Block8.textContent && Block9 ==='X') {
-//         winner.textContent = 'X is the winner!'        
-//     } else if (Block1.textContent && Block4.textContent && Block7 ==='X') {
-//         winner.textContent = 'X is the winner!'
-//     } else if (Block2.textContent && Block5.textContent && Block8 ==='X') {
-//         winner.textContent = 'X is the winner!'
-//     } else if (Block3.textContent && Block6.textContent && Block9 ==='X') {
-//         winner.textContent = 'X is the winner!'
-//     } else if (Block1.textContent && Block5.textContent && Block9 ==='X') {
-//         winner.textContent = 'X is the winner!'
-//     } else if (Block3.textContent && Block5.textContent && Block7 ==='X') {
-//         winner.textContent = 'X is the winner!'
-//  }
-// })
-    
-// var oWinning = document.querySelector('#cell-2')
-//  clicked.addEventListener('click',(event) {
-//     if (Block1.textContent && Block2.textContent && Block3 ==='O') {
-//         winner.textContent = 'O is the winner!'
-//     } else if (Block4.textContent && Block5.textContent && Block6 ==='O') {
-//         winner.textContent = 'O is the winner!'
-//     } else if (Block7.textContent && Block8.textContent && Block9 ==='O') {
-//         winner.textContent = 'O is the winner!'        
-//     } else if (Block1.textContent && Block4.textContent && Block7 ==='O') {
-//         winner.textContent = 'O is the winner!'
-//     } else if (Block2.textContent && Block5.textContent && Block8 ==='O') {
-//         winner.textContent = 'O is the winner!'
-//     } else if (Block3.textContent && Block6.textContent && Block9 ==='O') {
-//         winner.textContent = 'O is the winner!'
-//     } else if (Block1.textContent && Block5.textContent && Block9 ==='O') {
-//         winner.textContent = 'O is the winner!'
-//     } else if (Block3.textContent && Block5.textContent && Block7 ==='O') {
-//         winner.textContent = 'O is the winner!'
-//  }
-// })
-
-
 function checkRowForWin() {
-    console.log(event.target.textContent)
-    // rows.
+    // rows
     if (Block1.textContent ==='X' && Block2.textContent ==='X' && Block3.textContent ==='X') {
         winner.textContent = 'X is the winner!'
     } else if (Block4.textContent ==='X' && Block5.textContent ==='X' && Block6.textContent ==='X') {
@@ -151,7 +81,7 @@ function checkRowForWin() {
         winner.textContent = 'O is the winner!'
     } else if (Block7.textContent ==='O' && Block8.textContent ==='O' && Block9.textContent ==='O') {
         winner.textContent = 'O is the winner!'
-        // now columns
+    //     // now columns
     } else if (Block1.textContent ==='X' && Block4.textContent ==='X' && Block7.textContent ==='X') {
         winner.textContent = 'X is the winner!'
     } else if (Block2.textContent ==='X' && Block5.textContent ==='X' && Block8.textContent ==='X') {
@@ -173,13 +103,15 @@ function checkRowForWin() {
         winner.textContent = 'O is the winner!'
     } else if (Block3.textContent ==='O' && Block5.textContent ==='O' && Block7.textContent ==='O') {
         winner.textContent = 'O is the winner!' 
+    } else if (Block1.textContent !=='' && Block2.textContent !=='' && Block3.textContent !=='' && Block4.textContent !=='' && Block5.textContent !=='' && Block6.textContent !=='' && Block7.textContent !=='' && Block8.textContent !=='' && Block9.textContent !=='') {
+        winner.textContent = 'We have a stalemate!'
     }
     
 }
-4
+
 
     // console.log(box)
-5 // let id = box.id
+ // let id = box.id
     // if (id === "cell-1" || id === "cell-2" || id === "cell-3") {
     //     if (Block1.textContent === '' && Block2.textContent === '' && Block3.textContent === '') {
     //      winner.textContent = 'O is the winner!'
@@ -188,31 +120,25 @@ function checkRowForWin() {
 // }
 
 var count = 1
-
-
-// you would also need a drawing condition. var drawing.
-
-//  now what goes in the section of queryselector()? everytime it has been clicked it will have to check. so it needs a for loop
-
-//  grid = [box, box, box,
-//          box, box, box,
-//          box, box, box]
-// check if the grid has text content or not if there is one then you move on to 
+var player1 = 'X'
+var player2 = 'O'
 var gridNodeList = document.querySelectorAll('.box')
 for (i=0; i < gridNodeList.length; i++ ) {
-    gridNodeList[i].addEventListener('click', function(event) {
+    gridNodeList[i].addEventListener('click', function(event) { 
+        if (event.target.textContent === '') {
             if (count %2 === 0) {
-            event.target.textContent = 'O'
-        }   else {
-            event.target.textContent = 'X'
-        }
-        count++    
-        checkRowForWin(event.target)         
+                event.target.textContent = 'O'
+                
+            } else {
+                event.target.textContent = 'X'
+            }
+            count++         
+            checkRowForWin(event.target)
+        }            
     })
-}
+
+ }
+
  
 </script>
 </html>
-
-
-<!-- what does it mean live or static? -->
