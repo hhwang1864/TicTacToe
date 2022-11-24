@@ -1,138 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tic-Tac-Toe!</title>
-    <link href='https://fonts.googleapis.com/css?family=Aclonica' rel='stylesheet'>
-    <style> 
-    body {
-        background-image: url('Star_Guardian.jpg');
-        background-size: 100%;
-        width: 100%;
-        height: 80vh;                      
-    }   
-
-    h1 {
-        margin-left: 40px;
-        text-align: center; 
-        font-size: 40px ; 
-        font-family: 'Aclonica' , 'san-serif';   
-        color : #67875d;
-        text-shadow: 0 2px 1px #79a06d, 
-      -1px 3px 1px #82ad75, 
-      -2px 5px 1px #8ebf80;
-
-    }
-
-    .grid {
-    display: grid;
-    gap: 1px;
-    grid-template-columns: repeat(3, 1fr);
-    width: 250px;
-    height: 250px;
-    opacity: 0.7;       
-    
-            
-    }
-    .box {
-    background-color: #808080;
-    width: 100px;
-    height: 100px;
-    text-align: center;
-    font-size: 90px;
-    font-family: 'Fugaz One', 'san-serif';
-    color: rgba(237, 192, 199, 0.476);
-    text-shadow: -3px 0 1px rgb(30, 242, 241), 3px 0 1px rgb(246, 5, 10);
-    
-    
-    } 
-    main {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    }
-    .teemo { 
-        height: 200px;
-        width: 100px;
-        margin-top: 185px;
-        margin-left: 40px;
-
-    }
-
-    .jinx { 
-        height: 200px;
-        width: 100px;
-        margin-left: 100px;
-        margin-top: 185px;
-    }
-    div #cell-1 {
-        border-radius: 30px 0px 0px 0px;
-    }
-
-    div #cell-3 {
-        border-radius: 0px 30px 0px 0px;
-    }
-
-    div #cell-7 {
-        border-radius: 0px 0px 0px 30px;
-    }
-
-    div #cell-9 {
-        border-radius: 0px 0px 30px 0px;
-    }
-    .newText {
-         color: #dfdfdf;
-         text-shadow: 4px 4px 0px #000, 
-         -4px 0 0px #000,
-         7px 4px 0 #fff;
-    }
-    .newText1{
-        background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
-        opacity: 0.9;
-        color: pink
-
-    }
-
-    </style>
-    </head>
-    <body>
-     <main>
-        
-        <img class="teemo" src="https://64.media.tumblr.com/237b24f94f0a8e4dcdf72af595c43f6a/tumblr_oxzlxbClwo1wz9025o1_400.gif" alt="teemo">            
-      <section>
-        <h1 class= 'who-is-winner'>Tic-Tac-Toe!</h1>
-        <button onclick="playAudio()" type="button">&#9836;</button>
-        <button onclick="playAudio()" type="button">&#9938;</button>
-        <div class="grid">        
-        <!-- row 1 -->
-        <div id="cell-1" class="box"></div>
-        <div id="cell-2" class="box"></div>
-        <div id="cell-3" class="box"></div>
-        <!-- row 2 -->
-        <div id="cell-4" class="box"></div>
-        <div id="cell-5" class="box"></div>
-        <div id="cell-6" class="box"></div>
-        <!-- row 3 -->
-        <div id="cell-7" class="box"></div>
-        <div id="cell-8" class="box"></div>
-        <div id="cell-9" class="box"></div>          
-      </div>
-      
-    </section>    
-     <img class="jinx" src="https://storage.ko-fi.com/cdn/useruploads/display/c266d008-34b1-4753-ba9c-06a1741e330f_officiallightsensitive.gif" alt="jinx">
-
-    </main>
-</body>
-<script>
-    var music = document.querySelector("myMusic")
-    function playAudio() { 
-        x.play(); 
-    } 
-    function pauseAudio() {
-        x.pause();
-    }
-
 var Block1 = document.querySelector('#cell-1')
 var Block2 = document.querySelector('#cell-2')
 var Block3 = document.querySelector('#cell-3')
@@ -197,13 +62,9 @@ function checkWin() {
         winner.classList.add("newText1")
         winner.textContent = 'O is the winner!' 
     } else if (Block1.textContent !=='' && Block2.textContent !=='' && Block3.textContent !=='' && Block4.textContent !=='' && Block5.textContent !=='' && Block6.textContent !=='' && Block7.textContent !=='' && Block8.textContent !=='' && Block9.textContent !=='') {
-        winner.textContent = 'We have a stalemate!'
-        
-    }
-    
+        winner.textContent = 'We have a stalemate!' 
+    } 
 }
-
-
 var count = 1
 var player1 = 'X'
 var player2 = 'O'
@@ -227,5 +88,4 @@ for (i=0; i < gridNodeList.length; i++ ) {
         }                
     })
  } 
-</script>
-</html>
+

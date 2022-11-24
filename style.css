@@ -1,9 +1,88 @@
-.box {
-    border: 1px solid black;
-    height: 100px;
-    width: 100px;
+body {
+    background-image: url('Star_Guardian.jpg');
+    background-size: 100%;
+    width: 100%;
+    height: 80vh;                      
+}   
+
+h1 {
+    margin-left: 40px;
+    text-align: center; 
+    font-size: 40px ; 
+    font-family: 'Aclonica' , 'san-serif';   
+    color : #67875d;
+    text-shadow: 0 2px 1px #79a06d, 
+    -1px 3px 1px #82ad75, 
+    -2px 5px 1px #8ebf80;
 }
 
-.color-change {
-    background-color: green;
+.grid {
+display: grid;
+gap: 1px;
+grid-template-columns: repeat(3, 1fr);
+width: 250px;
+height: 250px;
+opacity: 0.7;       
+}
+
+.box {
+background-color: #808080;
+width: 100px;
+height: 100px;
+text-align: center;
+font-size: 90px;
+font-family: 'Fugaz One', 'san-serif';
+color: rgba(237, 192, 199, 0.476);
+text-shadow: -3px 0 1px rgb(30, 242, 241), 3px 0 1px rgb(246, 5, 10);
+
+
+} 
+main {
+display: grid;
+grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.teemo { 
+    height: 200px;
+    width: 100px;
+    margin-top: 185px;
+    margin-left: 40px;
+
+}
+
+.jinx { 
+    height: 200px;
+    width: 100px;
+    margin-left: 100px;
+    margin-top: 185px;
+}
+
+div #cell-1 {
+    border-radius: 30px 0px 0px 0px;
+}
+
+div #cell-3 {
+    border-radius: 0px 30px 0px 0px;
+}
+
+div #cell-7 {
+    border-radius: 0px 0px 0px 30px;
+}
+
+div #cell-9 {
+    border-radius: 0px 0px 30px 0px;
+}
+
+.newText {
+        color: #dfdfdf;
+        text-shadow: 4px 4px 0px #000, 
+        -4px 0 0px #000,
+        7px 4px 0 #fff;
+}
+
+.newText1{
+    background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
+    opacity: 0.9;
+    color: pink
+
 }
