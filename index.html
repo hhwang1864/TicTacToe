@@ -16,7 +16,7 @@
         grid-template-columns: repeat(3, 1fr);
         width: 250px;
         height: 250px;
-        margin-left: 186px;
+        margin-left: 370px;
         margin-top: 30px;
                 
       }
@@ -26,9 +26,8 @@
         height: 100px;
         text-align: center;
         font-size: 90px;
-
      } 
-     
+
     </style>
     </head>
     <body>
@@ -49,6 +48,7 @@
         <div id="cell-9" class="box"></div>  
       </div>
       <p class="who-is-winner"></p>
+     
     </main>
 </body>
 <script>
@@ -63,8 +63,10 @@ var Block6 = document.querySelector('#cell-6')
 var Block7 = document.querySelector('#cell-7')
 var Block8 = document.querySelector('#cell-8')
 var Block9 = document.querySelector('#cell-9')
-
 var winner = document.querySelector('.who-is-winner')
+
+
+
 
 
 function checkRowForWin() {
@@ -125,18 +127,20 @@ var player2 = 'O'
 var gridNodeList = document.querySelectorAll('.box')
 for (i=0; i < gridNodeList.length; i++ ) {
     gridNodeList[i].addEventListener('click', function(event) { 
-        if (event.target.textContent === '') {
-            if (count %2 === 0) {
-                event.target.textContent = 'O'
-                
-            } else {
-                event.target.textContent = 'X'
-            }
-            count++         
-            checkRowForWin(event.target)
-        }            
+        if (winner.textContent === '') {               
+            if (event.target.textContent === '') {
+                if (count %2 === 0) {
+                    event.target.textContent = 'O'
+                    
+                } else {
+                    event.target.textContent = 'X'
+                }
+                count++         
+                checkRowForWin(event.target)            
+            } 
+        }                
     })
-
+// if user has won stop the game.
  }
 
  
