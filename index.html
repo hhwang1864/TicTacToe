@@ -5,35 +5,77 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tic-Tac-Toe!</title>
-    <style>    
-    h1 {
-        text-align: center;       
-    }
-   
-    .grid {
-        display: grid;
-        gap: 1px;
-        grid-template-columns: repeat(3, 1fr);
-        width: 250px;
-        height: 250px;
-        margin-left: 370px;
-        margin-top: 30px;
-                
-      }
-     .box {
-        background-color: #808080;
-        width: 100px;
-        height: 100px;
-        text-align: center;
-        font-size: 90px;
-     } 
+    <style> 
+    body {
+        background-image: url('Star_Guardian.jpg');
+        background-size: 100%;
+        width: 100%;
+        height: 80vh;                      
+    }   
 
+    h1 {
+        text-align: center; 
+        font-size: 40px      
+    }
+
+    .grid {
+    display: grid;
+    gap: 1px;
+    grid-template-columns: repeat(3, 1fr);
+    width: 250px;
+    height: 250px;
+    opacity: 0.7;       
+    
+            
+    }
+    .box {
+    background-color: #808080;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    font-size: 90px;
+    } 
+    main {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+    .teemo { 
+        height: 200px;
+        width: 100px;
+        margin-top: 185px;
+        margin-left: 40px;
+
+    }
+
+    .jinx { 
+        height: 200px;
+        width: 100px;
+        margin-left: 100px;
+        margin-top: 185px;
+    }
+    div #cell-1 {
+        border-radius: 30px 0px 0px 0px;
+    }
+
+    div #cell-3 {
+        border-radius: 0px 30px 0px 0px;
+    }
+
+    div #cell-7 {
+        border-radius: 0px 0px 0px 30px;
+    }
+
+    div #cell-9 {
+        border-radius: 0px 0px 30px 0px;
+    }
     </style>
     </head>
     <body>
      <main>
-        <h1>Tic-Tac-Toe!</h1>           
-      <div class="grid">
+        <img class="teemo" src="https://64.media.tumblr.com/237b24f94f0a8e4dcdf72af595c43f6a/tumblr_oxzlxbClwo1wz9025o1_400.gif" alt="teemo">            
+      <section>
+        <h1 class= 'who-is-winner'>Tic-Tac-Toe!</h1>
+        <div class="grid">        
         <!-- row 1 -->
         <div id="cell-1" class="box"></div>
         <div id="cell-2" class="box"></div>
@@ -45,10 +87,12 @@
         <!-- row 3 -->
         <div id="cell-7" class="box"></div>
         <div id="cell-8" class="box"></div>
-        <div id="cell-9" class="box"></div>  
+        <div id="cell-9" class="box"></div>          
       </div>
-      <p class="who-is-winner"></p>
-     
+      
+    </section>    
+     <img class="jinx" src="https://storage.ko-fi.com/cdn/useruploads/display/c266d008-34b1-4753-ba9c-06a1741e330f_officiallightsensitive.gif" alt="jinx">
+
     </main>
 </body>
 <script>
@@ -69,7 +113,7 @@ var winner = document.querySelector('.who-is-winner')
 
 
 
-function checkRowForWin() {
+function checkWin() {
     // rows
     if (Block1.textContent ==='X' && Block2.textContent ==='X' && Block3.textContent ==='X') {
         winner.textContent = 'X is the winner!'
@@ -83,7 +127,7 @@ function checkRowForWin() {
         winner.textContent = 'O is the winner!'
     } else if (Block7.textContent ==='O' && Block8.textContent ==='O' && Block9.textContent ==='O') {
         winner.textContent = 'O is the winner!'
-    //     // now columns
+    //     // columns
     } else if (Block1.textContent ==='X' && Block4.textContent ==='X' && Block7.textContent ==='X') {
         winner.textContent = 'X is the winner!'
     } else if (Block2.textContent ==='X' && Block5.textContent ==='X' && Block8.textContent ==='X') {
@@ -96,7 +140,7 @@ function checkRowForWin() {
         winner.textContent = 'O is the winner!'     
     } else if (Block3.textContent ==='O' && Block6.textContent ==='O' && Block9.textContent ==='O') {
         winner.textContent = 'O is the winner!' 
-        // now diagonals
+        //diagonals
     } else if (Block1.textContent ==='X' && Block5.textContent ==='X' && Block9.textContent ==='X') {
         winner.textContent = 'X is the winner!'
     } else if (Block3.textContent ==='X' && Block5.textContent ==='X' && Block7.textContent ==='X') {
@@ -112,31 +156,25 @@ function checkRowForWin() {
 }
 
 
-    // console.log(box)
- // let id = box.id
-    // if (id === "cell-1" || id === "cell-2" || id === "cell-3") {
-    //     if (Block1.textContent === '' && Block2.textContent === '' && Block3.textContent === '') {
-    //      winner.textContent = 'O is the winner!'
-    // }
-// }
-// }
-
 var count = 1
 var player1 = 'X'
 var player2 = 'O'
+var audio1 = new Audio("captain-timo-on-duty.mp3")
+var audio2 = new Audio("unleash-the-beast.mp3")
 var gridNodeList = document.querySelectorAll('.box')
 for (i=0; i < gridNodeList.length; i++ ) {
     gridNodeList[i].addEventListener('click', function(event) { 
-        if (winner.textContent === '') {               
+        if (winner.textContent === 'Tic-Tac-Toe!') {               
             if (event.target.textContent === '') {
                 if (count %2 === 0) {
                     event.target.textContent = 'O'
-                    
+                    audio2.play()
                 } else {
                     event.target.textContent = 'X'
+                    audio1.play()
                 }
                 count++         
-                checkRowForWin(event.target)            
+                checkWin(event.target)            
             } 
         }                
     })
