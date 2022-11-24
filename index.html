@@ -135,17 +135,16 @@ var winner = document.querySelector('.who-is-winner')
 //  }
 // })
 
-var PlayerWin = event.target.textContent
 
 function checkRowForWin() {
     console.log(event.target.textContent)
     // rows.
     if (Block1.textContent ==='X' && Block2.textContent ==='X' && Block3.textContent ==='X') {
-        winner.textContent = PlayerWin + ' is the winner!'
+        winner.textContent = 'X is the winner!'
     } else if (Block4.textContent ==='X' && Block5.textContent ==='X' && Block6.textContent ==='X') {
-        winner.textContent = PlayerWin + ' is the winner!'
+        winner.textContent = 'X is the winner!'
     } else if (Block7.textContent ==='X' && Block8.textContent ==='X' && Block9.textContent ==='X') {
-        winner.textContent = PlayerWin + ' is the winner!' 
+        winner.textContent = 'X is the winner!' 
     } else if (Block1.textContent ==='O' && Block2.textContent ==='O' && Block3.textContent ==='O') {
         winner.textContent = 'O is the winner!' 
     } else if (Block4.textContent ==='O' && Block5.textContent ==='O' && Block6.textContent ==='O') {
