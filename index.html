@@ -97,13 +97,12 @@
     </style>
     </head>
     <body>
-     <main>
-        
+     <main>        
         <img class="teemo" src="https://64.media.tumblr.com/237b24f94f0a8e4dcdf72af595c43f6a/tumblr_oxzlxbClwo1wz9025o1_400.gif" alt="teemo">            
       <section>
         <h1 class= 'who-is-winner'>Tic-Tac-Toe!</h1>
-        <button onclick="playAudio()" type="button">&#9836;</button>
-        <button onclick="playAudio()" type="button">&#9938;</button>
+        <button class="myMusic">&#9836;</button>
+        <button class='myMusic1' type="button">&#9938;</button>
         <div class="grid">        
         <!-- row 1 -->
         <div id="cell-1" class="box"></div>
@@ -125,14 +124,12 @@
     </main>
 </body>
 <script>
-    var music = document.querySelector("myMusic")
-    function playAudio() { 
-        x.play(); 
-    } 
-    function pauseAudio() {
-        x.pause();
-    }
-
+    var music1 = document.querySelector(".myMusic")
+    var music = new Audio("summoners-rift.mp3")
+    music1.addEventListener('click',function(event) {
+        music.play()
+    })
+    
 var Block1 = document.querySelector('#cell-1')
 var Block2 = document.querySelector('#cell-2')
 var Block3 = document.querySelector('#cell-3')
