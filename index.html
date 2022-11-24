@@ -78,15 +78,15 @@ var callBack = function(event) {
     // }
     // 1 out of all the classes of divs
 
-var Block0 = document.querySelector('#cell-1')
-var Block1 = document.querySelector('#cell-2')
-var Block2 = document.querySelector('#cell-3')
-var Block3 = document.querySelector('#cell-4')
-var Block4 = document.querySelector('#cell-5')
-var Block5 = document.querySelector('#cell-6')
-var Block6 = document.querySelector('#cell-7')
-var Block7 = document.querySelector('#cell-8')
-var Block8 = document.querySelector('#cell-9')
+var Block1 = document.querySelector('#cell-1')
+var Block2 = document.querySelector('#cell-2')
+var Block3 = document.querySelector('#cell-3')
+var Block4 = document.querySelector('#cell-4')
+var Block5 = document.querySelector('#cell-5')
+var Block6 = document.querySelector('#cell-6')
+var Block7 = document.querySelector('#cell-7')
+var Block8 = document.querySelector('#cell-8')
+var Block9 = document.querySelector('#cell-9')
 
 var winner = document.querySelector('.who-is-winner')
 
@@ -95,8 +95,8 @@ var winner = document.querySelector('.who-is-winner')
 //  winning condition steps.
 //  var xWinning = document.querySelector('#cell-1')
 //  clicked.addEventListener('click',(event) {
-//     if (Block1.textContent && Block2.textContent && Block3 ==='X') {
-//         winner.textContent = 'X is the winner!'
+    // if (Block1.textContent && Block2.textContent && Block3 ==='X') {
+    //     winner.textContent = 'X is the winner!'
 //     } else if (Block4.textContent && Block5.textContent && Block6 ==='X') {
 //         winner.textContent = 'X is the winner!'
 //     } else if (Block7.textContent && Block8.textContent && Block9 ==='X') {
@@ -135,17 +135,58 @@ var winner = document.querySelector('.who-is-winner')
 //  }
 // })
 
+var PlayerWin = event.target.textContent
 
-
-function checkRowForWin(box) {
-    console.log(box)
-    let id = box.id
-    if (id === "cell-1" || id === "cell-2" || id === "cell-3") {
-        if (Block1.textContent === '' && Block2.textContent === '' && Block3.textContent === '') {
-         winner.textContent = 'O is the winner!'
+function checkRowForWin() {
+    console.log(event.target.textContent)
+    // rows.
+    if (Block1.textContent ==='X' && Block2.textContent ==='X' && Block3.textContent ==='X') {
+        winner.textContent = PlayerWin + ' is the winner!'
+    } else if (Block4.textContent ==='X' && Block5.textContent ==='X' && Block6.textContent ==='X') {
+        winner.textContent = PlayerWin + ' is the winner!'
+    } else if (Block7.textContent ==='X' && Block8.textContent ==='X' && Block9.textContent ==='X') {
+        winner.textContent = PlayerWin + ' is the winner!' 
+    } else if (Block1.textContent ==='O' && Block2.textContent ==='O' && Block3.textContent ==='O') {
+        winner.textContent = 'O is the winner!' 
+    } else if (Block4.textContent ==='O' && Block5.textContent ==='O' && Block6.textContent ==='O') {
+        winner.textContent = 'O is the winner!'
+    } else if (Block7.textContent ==='O' && Block8.textContent ==='O' && Block9.textContent ==='O') {
+        winner.textContent = 'O is the winner!'
+        // now columns
+    } else if (Block1.textContent ==='X' && Block4.textContent ==='X' && Block7.textContent ==='X') {
+        winner.textContent = 'X is the winner!'
+    } else if (Block2.textContent ==='X' && Block5.textContent ==='X' && Block8.textContent ==='X') {
+        winner.textContent = 'X is the winner!'
+    } else if (Block3.textContent ==='X' && Block6.textContent ==='X' && Block9.textContent ==='X') {
+        winner.textContent = 'X is the winner!'   
+    } else if (Block1.textContent ==='O' && Block4.textContent ==='O' && Block7.textContent ==='O') {
+        winner.textContent = 'O is the winner!'
+    } else if (Block2.textContent ==='O' && Block5.textContent ==='O' && Block8.textContent ==='O') {
+        winner.textContent = 'O is the winner!'     
+    } else if (Block3.textContent ==='O' && Block6.textContent ==='O' && Block9.textContent ==='O') {
+        winner.textContent = 'O is the winner!' 
+        // now diagonals
+    } else if (Block1.textContent ==='X' && Block5.textContent ==='X' && Block9.textContent ==='X') {
+        winner.textContent = 'X is the winner!'
+    } else if (Block3.textContent ==='X' && Block5.textContent ==='X' && Block7.textContent ==='X') {
+        winner.textContent = 'X is the winner!'  
+    } else if (Block1.textContent ==='O' && Block5.textContent ==='O' && Block9.textContent ==='O') {
+        winner.textContent = 'O is the winner!'
+    } else if (Block3.textContent ==='O' && Block5.textContent ==='O' && Block7.textContent ==='O') {
+        winner.textContent = 'O is the winner!' 
     }
+    
 }
-}
+4
+
+    // console.log(box)
+5 // let id = box.id
+    // if (id === "cell-1" || id === "cell-2" || id === "cell-3") {
+    //     if (Block1.textContent === '' && Block2.textContent === '' && Block3.textContent === '') {
+    //      winner.textContent = 'O is the winner!'
+    // }
+// }
+// }
 
 var count = 1
 
@@ -161,13 +202,13 @@ var count = 1
 var gridNodeList = document.querySelectorAll('.box')
 for (i=0; i < gridNodeList.length; i++ ) {
     gridNodeList[i].addEventListener('click', function(event) {
-        checkRowForWin(event.target)
-        if (count %2 === 0) {
+            if (count %2 === 0) {
             event.target.textContent = 'O'
         }   else {
             event.target.textContent = 'X'
         }
-        count++             
+        count++    
+        checkRowForWin(event.target)         
     })
 }
  
